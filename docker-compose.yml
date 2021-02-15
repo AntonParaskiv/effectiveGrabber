@@ -1,0 +1,15 @@
+version: '3.1'
+
+services:
+  api:
+    build: API
+    ports:
+      - 4000:4000
+    environment:
+      HTTP_LISTEN: :4000
+      RPM_LIMIT: 60
+  grabber:
+    build: Grabber
+    environment:
+      API_BASE_URL: http://api:4000
+      RPM_LIMIT: 59
